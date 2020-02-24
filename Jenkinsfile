@@ -23,8 +23,7 @@ pipeline {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 script{
                     dockerImage.inside {
-                        sh "npm i"
-                        sh "npm start"
+                        sh "npm test"
                     }
                 }
             }
