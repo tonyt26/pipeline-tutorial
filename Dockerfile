@@ -11,6 +11,3 @@ HEALTHCHECK --interval=5s \
 
 # tell docker what port to expose
 EXPOSE 8000
-
-RUN npm install
-CMD ["npm", "test"]
