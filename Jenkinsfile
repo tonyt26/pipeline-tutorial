@@ -3,6 +3,8 @@ pipeline {
     registry = "ating3/pipeline-tutorial"
     registryCredential = "dockerhub"
     dockerImage = ''
+    HOME = '.'
+    npm_config_cache = 'npm-cache'
   }
   agent any
   stages {
