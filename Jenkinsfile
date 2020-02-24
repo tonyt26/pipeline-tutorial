@@ -36,8 +36,7 @@ pipeline {
       steps{
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
             script {
-                docker.withRegistry( '' , registryCredential ) {
-                    sh "docker login"
+                docker.withRegistry('', registryCredential ) {
                     dockerImage.push()
                 }
             }
