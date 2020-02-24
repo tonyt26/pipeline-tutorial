@@ -34,10 +34,12 @@ pipeline {
     }
     stage('Deploy Image') {
       steps{
-        script {
-          docker.withRegistry( '' , registryCredential ) {
-            dockerImage.push()
-          }
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+            script {
+                docker.withRegistry( '' , registryCredential ) {
+                    dockerImage.push()
+                }
+            }
         }
       }
     }
