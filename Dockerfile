@@ -1,10 +1,6 @@
 # use a node base image
 FROM node:7-onbuild
 
-# set maintainer
-#LABEL maintainer "miiro@getintodevops.com"
-RUN npm install
-
 # set a health check
 HEALTHCHECK --interval=5s \
             --timeout=5s \
