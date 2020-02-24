@@ -26,6 +26,7 @@ pipeline {
                 script{
                     dockerImage.inside {
                         sh "npm i"
+                        sh "npm test"
                     }
                 }
             }
