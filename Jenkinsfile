@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Test image') {
         steps {
-            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+            catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                 /*script{
                     dockerImage.inside {
                         sh "npm i"
@@ -35,7 +35,7 @@ pipeline {
     }
     stage('Deploy Image') {
       steps{
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
             script {
                 docker.withRegistry('', registryCredential ) {
                     dockerImage.push()
