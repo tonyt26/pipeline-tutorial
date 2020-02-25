@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Test image') {
         steps {
-            catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+            //catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                 /*script{
                     dockerImage.inside {
                         sh "npm i"
@@ -30,7 +30,7 @@ pipeline {
                     }
                 }*/
                 sh "echo Testing"
-            }
+            //}
         }
     }
     stage('Deploy Image') {
